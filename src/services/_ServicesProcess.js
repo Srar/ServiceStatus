@@ -93,7 +93,11 @@ export default class ServicesProcess {
         }
 
         if (Tasks[task.Name] != undefined) {
-            throw `can't load service [${targetConfig[task.Name]}]: task exists.`
+            throw `can't load service [${targetConfig["Name"]}]: task exists.`
+        }
+
+        if(task.CheckTimer < task.Service.getCheckTimerLimit()) {
+            throw `can't load service [${targetConfig["Name"]}]: check time limit ${task.Service.getCheckTimerLimit()}s.`
         }
 
         Tasks[task.Name] = task;
