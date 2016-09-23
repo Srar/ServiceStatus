@@ -84,16 +84,16 @@ export default class ServicesProcess {
             }
         }
 
-        if (task.CheckTimer < 1) {
-            throw `load service target config error: [${targetConfig["Name"]}][CheckTimer] must be greater than one.`
-        }
-
         if (task.ErrorLimit < task.WarningLimit) {
             throw `load service target config error: [${targetConfig["Name"]}][ErrorLimit] must be greater than [WarningLimit].`
         }
 
         if (Tasks[task.Name] != undefined) {
             throw `can't load service [${targetConfig["Name"]}]: task exists.`
+        }
+
+        if (task.CheckTimer < 1) {
+            throw `load service target config error: [${targetConfig["Name"]}][CheckTimer] must be greater than one.`
         }
 
         if(task.CheckTimer < task.Service.getCheckTimerLimit()) {
@@ -107,15 +107,17 @@ export default class ServicesProcess {
             try {
                 report = await task.Service.reportStatus(task);
             } catch (ex) {
-                return console.log(`[${task.Name}] error: ${ex.toString()}`);
-            }
-
-            if (!report.status && report.error != null) {
-                console.error(`[${task.Name}] ${report.error}`);
+                return console.log(`[${task.Name}] process error: ${ex.toString()}`);
             }
 
             if (!report.status) {
                 task.ErrorCount++;
+                if(report.getAllMessages()["error"]) {
+                    console.error(`[${task.Name}] report ${report.getAllMessages()["error"]}.`);
+                } else {
+                    console.error(`[${task.Name}] report unknown error.`)
+                }
+                
             }
 
             if (report.status) {
