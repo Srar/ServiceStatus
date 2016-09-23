@@ -12,7 +12,7 @@ function _test(url: string, proxy: string): Promise<SerivceReportModel> {
         superagent
             .get(url)
             .proxy(proxy)
-            .timeout(1000 * 6)
+            .timeout(1000 * 5)
             .end((err, res) => {
                 if (err) {
                     var report = new SerivceReportModel(false);
@@ -52,6 +52,6 @@ export default class HttpProxy {
     }
 
     getCheckTimerLimit(): number {
-        return 7;
+        return 5;
     }
 }

@@ -11,5 +11,5 @@
     "ErrorMessage": "",
     "WarningLimit": 5,
     "ErrorLimit": 10,
-    "CheckTimer": 1
+    "CheckTimer": 5
 }
