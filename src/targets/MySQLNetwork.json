@@ -1,0 +1,15 @@
+{
+    "Icon": "database",
+    "Name": "MySQLNetwork",
+    "Service": "TcpConnect",
+    "Target": {
+        "host": "192.168.0.210",
+        "port": 3306
+    },
+    "NormalMessage": "{time}ms",
+    "WarningMessage": "",
+    "ErrorMessage": "数据库故障中...",
+    "WarningLimit": 5,
+    "ErrorLimit": 10,
+    "CheckTimer": 5
+}
