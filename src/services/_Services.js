@@ -13,8 +13,8 @@ function registerService(service: IService) {
     if(services[serviceName] != undefined) {
         return;
     }
-    console.log(`register [${serviceName}] service`);
     services[serviceName] = service;
+    console.log(`registered [${serviceName}] service`);
 } 
 
 export default class Services {
