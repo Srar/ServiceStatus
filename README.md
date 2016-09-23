@@ -73,32 +73,27 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 ## 目前支持的服务
 
 * HttpProxy
-
-  * ```json
-    "Target": {
-    	"host": "192.168.0.250",
-    	"port": 9257
-    },
-    ```
+```json
+"Target": {
+    "host": "192.168.0.250",
+    "port": 9257
+},
+```
 
 * TcpConnect 
-
-  * ```json
-    "Target": {
-    	"host": "192.168.0.210",
-    	"port": 3306
-    },
-    ```
+```json
+"Target": {
+    "host": "192.168.0.210",
+    "port": 3306
+},
+```
 
 * HttpGet
-
-  * ```json
-    "Target": {
-      	"url": "https://github.com"
-    },
-    ```
-
-
+```json
+"Target": {
+    "url": "https://github.com"
+},
+```
 
 ## 添加服务
 
