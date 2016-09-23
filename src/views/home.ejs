@@ -1,0 +1,34 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+    <title>xSpeed Service Status</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.css.net/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2 class="title">xSpeed Service Status</h2>
+        <div class="service-list">
+
+            <% for(var i = 0; i < ServicesList.length; i++) { %>
+                <div class="service-item">
+                    <span class="service-name">
+                        <i class="fa fa-<%= ServicesList[i].icon %>" aria-hidden="true"></i><%= ServicesList[i].name %>
+                    </span>
+                    <div class="service-status">
+                        <span><%= ServicesList[i].message %></span>
+                        <div class="service-status-icon service-status-icon-<%= ServicesList[i].status %>"></div>
+                    </div>
+                </div>
+            <% } %>
+            
+        </div>
+        <span class="tip">服务状态仅供参考</span>
+    </div>
+    <script src="https://libs.x-speed.cc/prefixfree.min.js"></script>
+</body>
+
+</html>

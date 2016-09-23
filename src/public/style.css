@@ -1,0 +1,110 @@
+ .title {
+     font-weight: 600;
+     color: #696868;
+ }
+ 
+ .container {
+     width: 768px;
+     margin-top: 36px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ 
+ .service-list {
+     margin-top: 16px;
+     border: 1px solid #d1d1d6;
+     border-radius: 8px;
+ }
+ 
+ .service-list > .service-item {
+     height: 13px;
+     padding: 16px;
+ }
+ 
+ .service-list > .service-item > .service-name {
+     color: #696868;
+     font-size: 17px;
+     margin-left: 10px;
+ }
+ 
+ .service-list > .service-item > .service-name > i {
+     margin-right: 10px;
+ }
+ 
+ .service-list > .service-item {
+     border-bottom: 1px solid #ccccce;
+ }
+ 
+ .service-list > .service-item:last-child {
+     border-bottom: 0px solid #ccccce;
+ }
+ 
+ .service-list > .service-item > .service-status {
+     width: auto;
+     height: 16px;
+     float: right;
+ }
+ 
+ .service-list > .service-item > .service-status > span {
+     position: relative;
+     top: -4px;
+     right: 5px;
+     font-size: 14px;
+     color: #696868;
+ }
+ 
+ .service-list > .service-item > .service-status > .service-status-icon {
+     width: 16px;
+     height: 16px;
+     border-radius: 16px;
+     display: inline-block;
+ }
+ 
+ .service-list > .service-item > .service-status > .service-status-icon-normal {
+     background-color: #afeea7;
+     border: 1px solid #80d776;
+ }
+ 
+ .service-list > .service-item > .service-status > .service-status-icon-error {
+     background-color: #ffa7a7;
+     border: 1px solid #ff9090;
+ }
+ 
+ .service-list > .service-item > .service-status > .service-status-icon-warning {
+     background-color: #fbefd4;
+     border: 1px solid #ffcd5f;
+ }
+ 
+ .tip {
+     display: block;
+     margin-top: 8px;
+     text-align: right;
+     font-size: 13px;
+     color: #696868;
+ }
+ 
+ @media screen and (max-width: 500px) {
+     .title {
+         font-weight: 600;
+         color: #696868;
+         font-size: 23px;
+     }
+     .container {
+         width: 100%;
+         margin-top: 18px;
+         margin-left: auto;
+         margin-right: auto;
+     }
+     .service-list > .service-item > .service-status > span {
+         position: relative;
+         top: -4px;
+         right: 2px;
+         font-size: 14px;
+         color: #696868;
+     }
+     .service-list > .service-item > .service-name {
+         color: #696868;
+         font-size: 17px;
+         margin-left: 0px;
+     }
+ }

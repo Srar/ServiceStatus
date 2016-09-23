@@ -1,0 +1,15 @@
+{
+    "Icon": "paper-plane",
+    "Name": "Shadowsocks",
+    "Service": "HttpProxy",
+    "Target": {
+        "host": "192.168.0.250",
+        "port": 9257
+    },
+    "NormalMessage": "{time}ms",
+    "WarningMessage": "",
+    "ErrorMessage": "",
+    "WarningLimit": 5,
+    "ErrorLimit": 10,
+    "CheckTimer": 1
+}
