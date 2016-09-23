@@ -76,9 +76,10 @@ export default class ServicesProcess {
             ErrorLimit: parseInt(targetConfig["ErrorLimit"]),
             CheckTimer: parseInt(targetConfig["CheckTimer"]),
             ErrorCount: 0,
+            Process: () => {},
             Summary: {
                 icon: targetConfig["Icon"] || "",
-                message: "",
+                message: "initializing",
                 name: targetConfig["Name"],
                 status: "Normal"
             }
@@ -102,7 +103,7 @@ export default class ServicesProcess {
 
         Tasks[task.Name] = task;
 
-        setInterval(async function () {
+        task.Process = async function () {
             var report: SerivceReportModel;
             try {
                 report = await task.Service.reportStatus(task);
@@ -144,7 +145,11 @@ export default class ServicesProcess {
             if (task.Summary.status == "Error") {
                 task.Summary.message = ServicesProcess._formatMessage(task.ErrorMessage, report.getAllMessages());
             }
-        }, task.CheckTimer * 1000);
+        };
+
+        task.Process();
+
+        setInterval(task.Process, task.CheckTimer * 1000);
 
         console.log(`registered service task [${task.Name}].`);
     }
