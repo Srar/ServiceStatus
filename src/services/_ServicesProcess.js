@@ -2,6 +2,7 @@
 
 import fs from "fs";
 import path from "path";
+import events from "events";
 
 import type { ServiceTaskModel } from "../models/ServiceTaskModel.js";
 import type { ServiceStatusModel } from "../models/ServiceStatusModel.js";
@@ -11,9 +12,15 @@ import SerivceReportModel from "../models/SerivceReportModel.js";
 import { IService } from "./_IService.js";
 import Services from "./_Services.js";
 
+var eventEmitter: events = new events.EventEmitter();
+eventEmitter.setMaxListeners(100);
 var Tasks: { [name: string]: ServiceTaskModel } = {};
 
 export default class ServicesProcess {
+
+    static getEventEmitter(): events {
+        return eventEmitter;
+    }
 
     static loadTargets() {
         var files: Array<string> = fs.readdirSync(path.join("targets"));
@@ -112,13 +119,14 @@ export default class ServicesProcess {
             }
 
             if (!report.status) {
-                task.ErrorCount++;
+                if(!(task.ErrorCount >= task.ErrorLimit)) {
+                    task.ErrorCount++;
+                }
                 if(report.getAllMessages()["error"]) {
                     console.error(`[${task.Name}] report ${report.getAllMessages()["error"]}.`);
                 } else {
                     console.error(`[${task.Name}] report unknown error.`)
                 }
-                
             }
 
             if (report.status) {
@@ -126,12 +134,19 @@ export default class ServicesProcess {
                 if (task.ErrorCount < 0) task.ErrorCount = 0;
             }
 
-            task.Summary.status = "Normal";
-            if (task.ErrorCount > task.WarningLimit) {
-                task.Summary.status = "Warning";
+            if(task.ErrorCount < task.WarningLimit && task.Summary.status != "Normal") {
+                task.Summary.status = "Normal";
+                eventEmitter.emit("normal", task);
             }
-            if (task.ErrorCount > task.ErrorLimit) {
+
+            if (task.ErrorCount >= task.WarningLimit && task.Summary.status != "Warning" && task.ErrorCount < task.ErrorLimit ) {
+                task.Summary.status = "Warning";
+                eventEmitter.emit("warning", task);
+            }
+
+            if (task.ErrorCount >= task.ErrorLimit && task.Summary.status != "Error") {
                 task.Summary.status = "Error";
+                eventEmitter.emit("err", task);
             }
 
             if (task.Summary.status == "Normal" && report.status) {
@@ -150,6 +165,8 @@ export default class ServicesProcess {
         task.Process();
 
         setInterval(task.Process, task.CheckTimer * 1000);
+
+        eventEmitter.emit("load", task);
 
         console.log(`registered service task [${task.Name}].`);
     }
