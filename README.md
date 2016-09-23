@@ -24,7 +24,7 @@ npm install && npm run build && npm run start
 
 build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务即可.
 
-> Icon: 网页上标识的图表 请访问 http://fontawesome.io/icons/ 查询
+> Icon: 网页上标识的图标 请访问 http://fontawesome.io/icons/ 查询
 >
 > Name: 网页上标识出的监控名
 >
