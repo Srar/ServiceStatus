@@ -1,0 +1,14 @@
+{
+    "Icon": "github",
+    "Name": "Github",
+    "Service": "HttpGet",
+    "Target": {
+       "url": "https://github.com"
+    },
+    "NormalMessage": "{time}ms",
+    "WarningMessage": "",
+    "ErrorMessage": "",
+    "WarningLimit": 5,
+    "ErrorLimit": 10,
+    "CheckTimer": 10
+}

@@ -2,6 +2,7 @@
 
 import { IService } from "./_IService.js";
 
+import HttpGet from "./HttpGet.js";
 import HttpProxy from "./HttpProxy.js";
 import TcpConnect from "./TcpConnect.js";
 
@@ -19,6 +20,7 @@ function registerService(service: IService) {
 export default class Services {
 
     static loadServices() {
+        registerService((new HttpGet   : IService));
         registerService((new HttpProxy : IService));
         registerService((new TcpConnect: IService));
     }
