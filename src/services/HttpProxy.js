@@ -38,11 +38,11 @@ export default class HttpProxy {
 
         if (taskModel.Target["host"] == undefined) {
             console.error(`[HttpProxy] target host undefined.`);
-            return new SerivceReportModel(false, `target [host] undefined.`);
+            return new SerivceReportModel(false);
         }
         if (taskModel.Target["port"] == undefined) {
             console.error(`[HttpProxy] target port undefined.`);
-            return new SerivceReportModel(false, `target [port] undefined.`);
+            return new SerivceReportModel(false);
         }
 
         host = taskModel.Target["host"];
