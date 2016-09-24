@@ -15,5 +15,6 @@ export type ServiceTaskModel = {
     CheckTimer: number,
     ErrorCount: number,
     Process: Function,
-    Summary: ServiceModel
+    Summary: ServiceModel,
+    OtherSettings: any
 }

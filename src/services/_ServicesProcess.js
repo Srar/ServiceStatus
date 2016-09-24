@@ -89,7 +89,8 @@ export default class ServicesProcess {
                 message: "initializing",
                 name: targetConfig["Name"],
                 status: "Normal"
-            }
+            },
+            OtherSettings: targetConfig["OtherSettings"] || {} 
         }
 
         if (task.ErrorLimit < task.WarningLimit) {

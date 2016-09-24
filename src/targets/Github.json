@@ -10,5 +10,8 @@
     "ErrorMessage": "",
     "WarningLimit": 5,
     "ErrorLimit": 10,
-    "CheckTimer": 10
+    "CheckTimer": 10,
+    "OtherSettings": {
+        "ReportEmail": false
+    }
 }

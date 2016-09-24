@@ -11,5 +11,8 @@
     "ErrorMessage": "数据库故障中...",
     "WarningLimit": 5,
     "ErrorLimit": 10,
-    "CheckTimer": 5
+    "CheckTimer": 5,
+    "OtherSettings": {
+        "ReportEmail": true
+    }
 }

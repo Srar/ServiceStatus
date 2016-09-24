@@ -7,11 +7,16 @@ const fs = require("fs");
 const app = express();
 
 console.log("loadding services...")
-const services = require("./services/_Services.js");
-services.default.loadServices();
+import Services from "./services/_Services.js";
+Services.loadServices();
+
 console.log("init services process...");
-const servicesProcess = require("./services/_ServicesProcess.js");
-servicesProcess.default.loadTargets()
+import ServicesProcess from "./services/_ServicesProcess.js";
+ServicesProcess.loadTargets();
+
+console.log("init services email report...");
+import ServicesEmail   from "./services/_ServicesEmail.js";
+new ServicesEmail(ServicesProcess.getEventEmitter());
 
 app.use(require("compression")());
 app.engine(".ejs", require("ejs").__express);
