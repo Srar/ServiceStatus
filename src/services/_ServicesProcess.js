@@ -120,11 +120,11 @@ export default class ServicesProcess {
             }
 
             if (!report.status) {
-                if(!((task.ErrorCount + 10) >= task.ErrorLimit)) {
+                if(task.ErrorCount < task.ErrorLimit + 10 ) {
                     task.ErrorCount++;
                 }
                 if(report.getAllMessages()["error"]) {
-                    console.error(`[${task.Name}] report ${report.getAllMessages()["error"]}.`);
+                    console.error(`[${task.Name}] report ${report.getAllMessages()["error"]}. Error count: ${task.ErrorCount}`);
                 } else {
                     console.error(`[${task.Name}] report unknown error.`)
                 }
