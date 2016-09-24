@@ -4,12 +4,12 @@
 
 # Service Status
 
-> 一个基于NodeJS的服务检测工具 可以添加配置文件来展示服务状态或通过WebHook提醒
+> 一个基于NodeJS的服务检测工具 可以添加配置文件来展示服务状态和通过WebHook或邮件来提醒
 
 
 ## 预览
 
-![DA3E59EB-4440-4E69-AED7-12CE90E2C7F7.png](https://ooo.0o0.ooo/2016/09/23/57e52b64f00d5.png)
+![预览图](https://ooo.0o0.ooo/2016/09/24/57e6150506e19.png)
 
 
 ## 如何使用
@@ -48,7 +48,7 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 >
 > CheckTimer: 监控间隔 单位秒
 >
->  
+>  OtherSettings(可选): 服务插件调用的配置信息
 
 ```jso
 {
@@ -64,7 +64,10 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
     "ErrorMessage": "",
     "WarningLimit": 5,
     "ErrorLimit": 10,
-    "CheckTimer": 1
+    "CheckTimer": 1,
+    "OtherSettings": {
+      
+    }
 }
 ```
 
@@ -94,6 +97,18 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
     "url": "https://github.com"
 },
 ```
+
+## 如何开启邮件提醒
+将email.config.default.json更名为email.config.json
+> ReportEmail 需要发送服务异常的邮箱
+>
+> EmailHost SMTP服务器
+>
+> EmailAccount SMTP帐号
+>
+> EmailPassword SMTP密码
+>
+> 在服务target OtherSettings中加入 ```"ReportEmail": false ```
 
 ## 添加服务
 
