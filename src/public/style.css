@@ -22,9 +22,11 @@
  }
  
  .service-list > .service-item > .service-name {
-     color: #696868;
-     font-size: 17px;
-     margin-left: 10px;
+    color: #696868;
+    font-size: 17px;
+    margin-left: 10px;
+    position: relative;
+    top: -4px;
  }
  
  .service-list > .service-item > .service-name > i {
@@ -43,6 +45,8 @@
      width: auto;
      height: 16px;
      float: right;
+     position: relative;
+     top: -3px;
  }
  
  .service-list > .service-item > .service-status > span {
@@ -82,8 +86,8 @@
      font-size: 13px;
      color: #696868;
  }
- 
- @media screen and (max-width: 500px) {
+
+ @media screen and (max-width: 791px) {
      .title {
          font-weight: 600;
          color: #696868;
@@ -95,12 +99,16 @@
          margin-left: auto;
          margin-right: auto;
      }
+ }
+ 
+ @media screen and (max-width: 500px) {
      .service-list > .service-item > .service-status > span {
-         position: relative;
+         /*position: relative;
          top: -4px;
          right: 2px;
          font-size: 14px;
-         color: #696868;
+         color: #696868;*/
+         display: none;
      }
      .service-list > .service-item > .service-name {
          color: #696868;
