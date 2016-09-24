@@ -120,7 +120,7 @@ export default class ServicesProcess {
             }
 
             if (!report.status) {
-                if(!(task.ErrorCount >= task.ErrorLimit)) {
+                if(!((task.ErrorCount + 10) >= task.ErrorLimit)) {
                     task.ErrorCount++;
                 }
                 if(report.getAllMessages()["error"]) {
