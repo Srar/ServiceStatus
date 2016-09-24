@@ -120,7 +120,7 @@ export default class ServicesProcess {
             }
 
             if (!report.status) {
-                if(!(task.ErrorCount >= task.ErrorLimit)) {
+                if(!((task.ErrorCount + 10) >= task.ErrorLimit)) {
                     task.ErrorCount++;
                 }
                 if(report.getAllMessages()["error"]) {
@@ -147,6 +147,7 @@ export default class ServicesProcess {
 
             if (task.ErrorCount >= task.ErrorLimit && task.Summary.status != "Error") {
                 task.Summary.status = "Error";
+                task.ErrorCount = task.ErrorCount + 10;
                 eventEmitter.emit("err", task);
             }
 
