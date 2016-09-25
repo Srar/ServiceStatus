@@ -9,7 +9,7 @@
 
 ## 预览
 
-![预览图](https://ooo.0o0.ooo/2016/09/24/57e6150506e19.png)
+![预览图](https://ooo.0o0.ooo/2016/09/25/57e7c490e1416.png)
 
 
 ## 如何使用
@@ -75,7 +75,16 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 
 ## 目前支持的服务
 
+* Ping4
+> 输出变量: {time} {error}
+```json
+"Target": {
+    "host": "192.168.0.210"
+},
+```
+
 * HttpProxy
+> 输出变量: {time} {error}
 ```json
 "Target": {
     "host": "192.168.0.250",
@@ -84,6 +93,7 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 ```
 
 * TcpConnect 
+> 输出变量: {time} {error}
 ```json
 "Target": {
     "host": "192.168.0.210",
@@ -92,6 +102,7 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 ```
 
 * HttpGet
+> 输出变量: {time} {error}
 ```json
 "Target": {
     "url": "https://github.com"
@@ -108,7 +119,7 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 >
 > EmailPassword SMTP密码
 >
-> 在服务target OtherSettings中加入 ```"ReportEmail": false ```
+> 在需要异常报告服务target中OtherSettings中加入 ```"ReportEmail": false ```
 
 ## 添加服务
 

@@ -1,0 +1,17 @@
+{
+    "Icon": "server",
+    "Name": "RaspberryPi",
+    "Service": "Ping4",
+    "Target": {
+       "host": "192.168.0.210"
+    },
+    "NormalMessage": "{time}ms",
+    "WarningMessage": "",
+    "ErrorMessage": "",
+    "WarningLimit": 5,
+    "ErrorLimit": 10,
+    "CheckTimer": 10,
+    "OtherSettings": {
+        "ReportEmail": false
+    }
+}

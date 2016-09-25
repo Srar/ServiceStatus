@@ -5,6 +5,7 @@ import { IService } from "./_IService.js";
 import HttpGet from "./HttpGet.js";
 import HttpProxy from "./HttpProxy.js";
 import TcpConnect from "./TcpConnect.js";
+import Ping4 from "./Ping4.js";
 
 var services: { [name: string]: IService } = {};
 
@@ -23,6 +24,7 @@ export default class Services {
         registerService((new HttpGet   : IService));
         registerService((new HttpProxy : IService));
         registerService((new TcpConnect: IService));
+        registerService((new Ping4     : IService));
     }
 
     static getAllServicesName(): string[] {

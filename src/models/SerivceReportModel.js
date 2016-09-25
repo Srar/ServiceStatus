@@ -9,6 +9,10 @@ export default class SerivceReportModel {
         this.message = {};
     }
 
+    setStatus(status: boolean) {
+        this.status = status;
+    }
+
     getStatus(): boolean {
         return this.status;
     }
