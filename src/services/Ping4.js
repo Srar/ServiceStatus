@@ -20,7 +20,7 @@ function _test(host): Promise<SerivceReportModel> {
         var ip = host;
         var reportModel = new SerivceReportModel(false);
         var ips: Array<string> = [];
-        console.log(_validateIPaddress(ip), ip);
+        // console.log(_validateIPaddress(ip), ip);
         if (!_validateIPaddress(ip)) {
             try {
                 ips = await resolveDomain(host);
