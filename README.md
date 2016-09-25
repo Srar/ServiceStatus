@@ -129,6 +129,7 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 >
 > 在需要异常报告服务target中OtherSettings中加入 ```"ReportEmail": false ```
 
+<b> 邮件服务使用我本人架设的 <a href="https://github.com/Srar/HTTPPostman">HTTPPostman</a> 您可以clone源码自行架设</b>
 ## 添加服务
 
 * 实现IService接口 
