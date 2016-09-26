@@ -48,7 +48,7 @@ export default class HttpProxy {
         host = taskModel.Target["host"];
         port = parseInt(taskModel.Target["port"]);
 
-        return await _test("https://status.github.com/", `http://${host}:${port}`);
+        return await _test("https://status.github.com/messages", `http://${host}:${port}`);
     }
 
     getCheckTimerLimit(): number {
