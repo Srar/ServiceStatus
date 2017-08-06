@@ -6,6 +6,7 @@ import HttpGet from "./HttpGet.js";
 import HttpProxy from "./HttpProxy.js";
 import TcpConnect from "./TcpConnect.js";
 import Ping4 from "./Ping4.js";
+import JenkinsNode from "./JenkinsNode.js";
 
 var services: { [name: string]: IService } = {};
 
@@ -21,10 +22,11 @@ function registerService(service: IService) {
 export default class Services {
 
     static loadServices() {
-        registerService((new HttpGet   : IService));
-        registerService((new HttpProxy : IService));
-        registerService((new TcpConnect: IService));
-        registerService((new Ping4     : IService));
+        registerService((new HttpGet     : IService));
+        registerService((new HttpProxy   : IService));
+        registerService((new TcpConnect  : IService));
+        registerService((new Ping4       : IService));
+        registerService((new JenkinsNode : IService));
     }
 
     static getAllServicesName(): string[] {
