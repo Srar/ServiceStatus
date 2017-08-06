@@ -14,9 +14,14 @@ console.log("init services process...");
 import ServicesProcess from "./services/_ServicesProcess.js";
 ServicesProcess.loadTargets();
 
-console.log("init services email report...");
-import ServicesEmail   from "./services/_ServicesEmail.js";
+console.log("init service email report...");
+import ServicesEmail from "./services/_ServicesEmail.js";
 new ServicesEmail(ServicesProcess.getEventEmitter());
+
+console.log("init service webhook report...")
+import ServiceWebHook from "./services/_ServicesWebHook.js";
+new ServiceWebHook(ServicesProcess.getEventEmitter());
+
 
 app.use(require("compression")());
 app.engine(".ejs", require("ejs").__express);

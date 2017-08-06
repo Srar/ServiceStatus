@@ -117,7 +117,25 @@ build/targets文件夹内添加json文件, 添加并编辑完毕后重启服务�
 },
 ```
 
+## 如何使用WebHook
+在服务配置文件`OtherSettings`中加入
+```
+"WebHook": {
+    "method": "GET",
+    "url": "http://192.168.0.113:3001/webhook",
+    "data": {
+        "t1": "test01",
+        "t2": "test02"
+    }
+}
+```
+
+* __method__:GET POST.
+* __url__: WebHook调用的URL地址.
+* __data__:当使用POST时传输的POST内容.
+
 ## 如何开启邮件提醒
+
 将email.config.default.json更名为email.config.json
 > ReportEmail 需要发送服务异常的邮箱
 >

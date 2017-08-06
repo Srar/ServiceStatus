@@ -21,7 +21,7 @@ function _test(url: string): Promise<SerivceReportModel> {
                 try {
                     var response = JSON.parse(res.text);
                     if (response["offline"] === undefined || response["offline"] === true) {
-                        report.setMessage("error", "docker offline.");
+                        report.setMessage("error", "jenkins node offline.");
                         success(report);
                         return;
                     }
